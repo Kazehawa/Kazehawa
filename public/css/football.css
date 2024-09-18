@@ -1,0 +1,48 @@
+.footballpage-nav {
+    background-color: #f5f5f5;
+    padding: 10px;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+.footballpage-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.footballpage-nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.footballpage-nav ul li a {
+    color: #333;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.football-image {
+    display: flex;
+    object-fit: contain;
+    justify-content: center;
+    width: 73.5%;
+
+    margin-bottom: 20px;
+    margin-left: 250px;
+    margin-right: 250px;
+}

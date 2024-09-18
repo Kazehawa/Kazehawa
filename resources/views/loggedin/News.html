@@ -1,0 +1,348 @@
+News @foreach($news as $item)
+<div class="news-card">
+    <img src="{{ $item->image }}" alt="News Image" class="newscard-image" />
+    <div class="newscard-content">
+        <h2 class="newscard-title">{{ $item->title }}</h2>
+        <p class="newscard-description">{{ $item->description }}</p>
+        <a href="{{ $item->link }}" class="newscard-button">Read More</a>
+    </div>
+</div>
+@endforeach Sports @foreach($sports as $sport)
+<a href="/{{$sport->slug}}">
+    <div class="sportscard">
+        <img src="{{ $sport->image }}" alt="{{ $sport->name }}" />
+        <div class="sportscard-footer">
+            <span class="sportscardname">{{ $sport->name }}</span>
+        </div>
+    </div>
+</a>
+@endforeach
+
+<div class="sportscard">
+    <form action="/upload-sport" method="POST" enctype="multipart/form-data">
+        @csrf
+        <input type="text" name="name" placeholder="Sport Name" />
+        <input type="file" name="image" accept="image/*" />
+        <button type="submit">Upload Sport</button>
+    </form>
+</div>
+
+Highlights @foreach ($videos as $video)
+<div class="hightlight-card">
+    <div class="hightlight-wrapper">
+        <video
+            src="{{ $video->video_path }}"
+            controls
+            loop
+            poster="{{ $video->poster_image }}"
+        ></video>
+    </div>
+    <div class="highlight-content">
+        <h2 class="hightlight-title">{{ $video->title }}</h2>
+        <p class="highlight-description">{{ $video->description }}</p>
+        <a href="{{ $video->video_link }}" class="highlight-link"
+            >Watch Video</a
+        >
+    </div>
+</div>
+@endforeach Watchlive
+<div class="video-container">
+    @foreach ($videos as $video)
+    <video src="{{ $video->video_url }}" controls autoplay></video>
+    @endforeach
+</div>
+
+Footballs Tables
+
+<div class="footballtable-container">
+    <table class="footballtable">
+        <thead>
+            <tr>
+                <th>Team</th>
+                <th>Matches Played</th>
+                <th>Wins</th>
+                <th>Losses</th>
+                <th>Total Points</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($teams as $team)
+            <tr>
+                <td>{{ $team->name }}</td>
+                <td>{{ $team->matches_played }}</td>
+                <td>{{ $team->wins }}</td>
+                <td>{{ $team->losses }}</td>
+                <td>{{ $team->total_points }}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+
+liveonyokyo
+
+<div class="yokyo-card">
+    @foreach ($matches as $match)
+    <div class="yokyo-thumbnail">
+        <img src="{{ $match->thumbnail_image }}" alt="Thumbnail" />
+        <div class="yokyo-overlay">
+            <h3 class="yokyo-title">{{ $match->title }}</h3>
+            <a class="yokyo-button" href="{{ $match->watch_url }}"
+                >WATCH NOW!</a
+            >
+        </div>
+    </div>
+    @endforeach
+</div>
+
+newspage
+
+<div class="full-news-container">
+    <h2 class="full-news-title">{{ $news->title }}</h2>
+    <img src="{{ $news->image }}" alt="News Image" class="full-news-image" />
+    <p class="full-news-content">{{ $news->content }}</p>
+    <a href="{{ $news->back_link }}" class="full-news-back-button"
+        >Back to News</a
+    >
+</div>
+
+highlightsmain
+<div class="video-container">
+    @foreach ($videos as $video)
+    <a href="{{ $video->highlight_link }}">
+        <video src="{{ $video->video_path }}" controls autoplay></video>
+    </a>
+    @endforeach
+</div>
+
+profile
+<div class="profile-container">
+    <div class="profile-header">
+        <h1>Profile</h1>
+    </div>
+    <div class="profile-content">
+        <h2>Name: {{ $user->name }}</h2>
+        <p>Sex: {{ $user->sex }}</p>
+        <p>Country: {{ $user->country }}</p>
+        <p>Email: {{ $user->email }}</p>
+    </div>
+</div>
+
+reslust
+<div class="fixtures-container">
+    @foreach ($fixtures as $fixture)
+    <div class="fixture">
+        <div class="fixture-date">{{ $fixture->date }}</div>
+        <div class="fixture-matchup">
+            {{ $fixture->team1 }} vs {{ $fixture->team2 }}
+        </div>
+        <div class="fixture-info">
+            <div class="fixture-time">{{ $fixture->time }}</div>
+            <div class="fixture-location">{{ $fixture->location }}</div>
+        </div>
+    </div>
+    @endforeach
+</div>
+
+<div class="results-container">
+    @foreach ($results as $result)
+    <div class="result">
+        <div class="result-date">{{ $result->date }}</div>
+        <div class="result-matchup">
+            {{ $result->team1 }} {{ $result->score1 }} - {{ $result->score2 }}
+            {{ $result->team2 }}
+        </div>
+        <div class="result-info">
+            <div class="result-time">{{ $result->time }}</div>
+            <div class="result-location">{{ $result->location }}</div>
+        </div>
+    </div>
+    @endforeach
+</div>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        @stack('title')
+
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <!-- <link rel="stylesheet" href="css/admin/highlights.css"> -->
+
+        <!-- <link rel="stylesheet" href="css/admin/useredit.css"> -->
+        <!-- <link rel="stylesheet" href="css/admin/highlightsedit.css"> -->
+        <!-- <link rel="stylesheet" href="css/admin/index.css"> -->
+        <!-- <link rel="stylesheet" href="css/admin/news.css"> -->
+        <!-- <link rel="stylesheet" href="css/admin/newsedit.css"> -->
+        <!-- <link rel="stylesheet" href="css/admin/sportsedit.css"> -->
+        <link rel="stylesheet" href="css/messages.css" />
+    </head>
+    <body>
+        <div class="dashboard-container">
+            <div class="sidebar">
+                <h1>Admin</h1>
+                <div class="admin-menu">
+                    <ul>
+                        <li>
+                            <a href="{{ route('admin.users.index') }}">Users</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('admin.sports.index') }}"
+                                >Sports</a
+                            >
+                        </li>
+                        <li>
+                            <a href="{{ route('admin.lives.index') }}">Lives</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('admin.news.index') }}">News</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('admin.highlights.index') }}"
+                                >Highlights</a
+                            >
+                        </li>
+                        <li>
+                            <a href="{{ route('admin.subscriptions.index') }}"
+                                >Payments</a
+                            >
+                        </li>
+                        <li><a href="#">Setting</a></li>
+                        <li><a href="login">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="header">
+                <h1>Users Management</h1>
+            </div>
+            <div class="admin-content">
+                <a
+                    href="{{ route('admin.users.create') }}"
+                    class="add-user-link"
+                    >Add User</a
+                >
+
+                <table class="user-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Country</th>
+                            <th>Sex</th>
+                            <th>Subscribed</th>
+                            <th>Registered</th>
+                            <th>Active Status</th>
+                            <th>Created At</th>
+                            <th>Updated At</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($users as $user)
+                        <tr>
+                            <td>{{ $user->id }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>{{ $user->country }}</td>
+                            <td>{{ $user->sex }}</td>
+                            <td>{{ $user->subscribed }}</td>
+                            <td>{{ $user->registered }}</td>
+                            <td>
+                                @if ( $user->active_status == "1" ) Active @else
+                                Inactive @endif
+                            </td>
+                            <td>{{ $user->created_at }}</td>
+                            <td>{{ $user->updated_at }}</td>
+                            <td>{{ $user->Actions }}</td>
+                            <td>
+                                <a
+                                    href="{{ route('admin.users.edit', $user->id) }}"
+                                    >Edit</a
+                                >
+                                <form
+                                    action="{{ route('admin.users.destroy', $user->id) }}"
+                                    method="POST"
+                                    class="delete-form"
+                                >
+                                    @csrf @method('DELETE')
+                                    <button
+                                        type="submit"
+                                        class="delete-button"
+                                        onclick="return confirm('Are you sure you want to delete this user?')"
+                                    >
+                                        Delete
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <script>
+            // Confirmation before deleting a live
+            var deleteForms = document.getElementsByClassName("delete-form");
+            Array.prototype.forEach.call(deleteForms, function (form) {
+                form.addEventListener("submit", function (event) {
+                    event.preventDefault();
+                    var confirmed = confirm(
+                        "Are you sure you want to delete this live?"
+                    );
+                    if (confirmed) {
+                        this.submit();
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Title</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <!-- Bootstrap CSS -->
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous"
+        />
+    </head>
+    <body>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>

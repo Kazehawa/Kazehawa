@@ -1,0 +1,78 @@
+/* styles.css */
+
+/* Success Message */
+.success-message {
+    background-color: #dff0d8;
+    color: #3c763d;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* Form Fields */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.error {
+    color: #cc0000;
+    font-size: 16px;
+}
+
+.pay-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #337ab7;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.pay-button:hover {
+    background-color: #23527c;
+}
+
+.form-group-half {
+    width: 50%;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.alert.alert-success {
+    background-color: #dff0d8;
+    color: #3c763d;
+    border: 1px solid #d6e9c6;
+    padding: 10px;
+    height: 80px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 70%;
+    margin-bottom: 600px;
+    size: 16px;
+}
+
+.error-message {
+    color: #cc0000;
+}

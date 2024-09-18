@@ -1,0 +1,111 @@
+/* Reset default margin and padding */
+body,
+h1,
+h2,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Dashboard container */
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+    background-color: burlywood;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 200px;
+    padding: 20px;
+    background-color: rgb(54, 149, 117);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h1 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.admin-menu {
+    margin-top: 50px;
+}
+
+.admin-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.admin-menu ul li {
+    margin-bottom: 10px;
+}
+
+.admin-menu ul li a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #e2e2e3;
+    transition: background-color 0.3s ease;
+}
+
+.admin-menu ul li a:hover {
+    background-color: #003366;
+    color: rgb(255, 255, 255);
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.header {
+    margin-bottom: 20px;
+    background-color: rgb(54, 149, 117);
+    color: #fff;
+    padding: 10px;
+}
+
+.card {
+    background-color: burlywood;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th,
+table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.edit-button,
+.delete-button {
+    background-color: #003366;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.edit-button:hover {
+    background-color: #007d00;
+}
+
+.delete-button:hover {
+    background-color: red;
+}

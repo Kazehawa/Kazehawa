@@ -1,0 +1,65 @@
+body {
+    background-color: #c6c6c6;
+    font-family: Arial, sans-serif;
+}
+
+.payment-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 100px;
+}
+
+.payment-card-title {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+    background-color: aquamarine;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"] {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+
+.form-group-half {
+    display: inline-block;
+    width: 48%;
+}
+
+.pay-button {
+    background-color: aquamarine;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    transition: background-color 2s ease;
+}
+
+.pay-button:hover {
+    background-color: rgb(104, 66, 240);
+    color: #fff;
+}
